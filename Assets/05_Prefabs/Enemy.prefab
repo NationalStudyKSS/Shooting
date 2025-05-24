@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6088933375798243860}
   - component: {fileID: 1723407483787652222}
   - component: {fileID: 2863137473618190225}
-  - component: {fileID: -1150056044245283245}
-  - component: {fileID: 2901842859780392777}
   - component: {fileID: 6503769601149073944}
+  - component: {fileID: 9195356963159999863}
+  - component: {fileID: -5469831137781819941}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -137,34 +137,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!114 &-1150056044245283245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159707597808542422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec28ef4052d4e1a468a7af80effc2331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  maxHp: 100
-  currentHp: 100
---- !u!114 &2901842859780392777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159707597808542422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31046951f14354e4e8cef1956be5bd45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadTime: 5
 --- !u!114 &6503769601149073944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,8 +149,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5c5d2d0467e5447a58e41075030e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
-  enemyEffect: {fileID: 5284409929437216271, guid: 6ff36edd18067a04fb001a44439460bc, type: 3}
+  _model: {fileID: 9195356963159999863}
+  _mover: {fileID: -5469831137781819941}
+--- !u!114 &9195356963159999863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159707597808542422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115a31d326159314bba3f7b398450f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 0
+  _maxHp: 100
+  _currentHp: 100
+--- !u!114 &-5469831137781819941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159707597808542422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e548f29fc8c4242b3ce8bb045a2cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
 --- !u!1001 &7070815730845917097
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6969833484586010225}
   - component: {fileID: 6672455983586939211}
   - component: {fileID: 7347013838970652950}
-  - component: {fileID: -4232797110026019947}
+  - component: {fileID: 7231155570124496257}
   - component: {fileID: -4101707783104919470}
   - component: {fileID: 5302303088351107087}
   m_Layer: 0
@@ -104,7 +104,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -122,10 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b1dd2f8114fbd40ad56bcad1710c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy: {fileID: -1150056044245283245, guid: 563fee0e2ea48bb4e954572b1f7af5d2, type: 3}
-  damage: 50
-  bulletSpeed: 10
---- !u!114 &-4232797110026019947
+  _mover: {fileID: 7231155570124496257}
+--- !u!114 &7231155570124496257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,10 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4477491655589375631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31046951f14354e4e8cef1956be5bd45, type: 3}
+  m_Script: {fileID: 11500000, guid: 01e548f29fc8c4242b3ce8bb045a2cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deadTime: 3
+  _speed: 10
 --- !u!54 &-4101707783104919470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -177,7 +175,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.499
+  m_Volume: 0.095
   m_Pitch: 1
   Loop: 0
   Mute: 0
