@@ -1,16 +1,39 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMesh scoreText;
-    public float gameTime;
+    public static ScoreManager Instance;
+    public GameObject _inputDiscription;
 
-    // Update is called once per frame
-    void Update()
+    public TextMesh scoreText;
+    private int _gameScore;
+
+    private void Awake()
     {
-        gameTime = Time.time;
-        scoreText.text = "SCORE : " + (int)gameTime + "S";
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        StartCoroutine(DisableAfterSeconds(5f));
+    }
+
+    IEnumerator DisableAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _inputDiscription.SetActive(false);
+    }
+
+    public void AddScore(int amount)
+    {
+        _gameScore += amount;
+        UpdateScoreUI();
+    }
+
+    void UpdateScoreUI()
+    {
+        scoreText.text = "SCORE : " + _gameScore + "Á¡";
     }
 }

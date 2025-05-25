@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// 캐릭터의 데이터 관련 부분을 담당
@@ -12,6 +13,8 @@ public abstract class CharacterModel : MonoBehaviour
     [SerializeField] protected float _damage;
     [SerializeField] protected float _maxHp;
     [SerializeField] protected float _currentHp;
+
+    
     //[SerializeField] float _moveSpeed; // Mover가 이동관련 담당이므로 필요X
 
     // 체력변경 이벤트

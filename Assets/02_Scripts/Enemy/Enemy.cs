@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Enemy : Character
 {
+    float _damage = 25f;    // 나중에 데이터화해야함
+    int _deathCount = 0;
+
+    public int DeathCount => _deathCount;
+    
     protected override void OnDeath()
     {
         base.OnDeath();
+        _deathCount++;
     }
 
     private void Start()
     {
+        _model.OnDeath += () => ScoreManager.Instance.AddScore(1);
         Initialize();
     }
 
@@ -26,6 +33,16 @@ public class Enemy : Character
         if (transform.position.y < -1f)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Hero"))
+        {
+            Hero hero = other.GetComponent<Hero>();
+            Destroy(gameObject);
+            hero.TakeDamage(_damage);
         }
     }
 }

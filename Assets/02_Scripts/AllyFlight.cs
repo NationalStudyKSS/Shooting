@@ -15,12 +15,17 @@ public class AllyFlight : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (other.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject             );
+            var enemy = other.GetComponent<CharacterModel>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(100f); // OnDeath가 자동 호출될 수 있게
+            }
+
+            Destroy(gameObject); // 충돌 후 제거
         }
     }
 }

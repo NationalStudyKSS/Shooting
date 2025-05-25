@@ -6,6 +6,7 @@ using UnityEngine.Windows;
 public class Hero : Character
 {
     [SerializeField] HeroSkill skill;
+    [SerializeField] GameObject _restartPanel;
 
     [SerializeField] Transform _gunPoint;
     [SerializeField] GameObject _bulletPrefab;
@@ -35,7 +36,9 @@ public class Hero : Character
 
     protected override void OnDeath()
     {
-        base.OnDeath();
+        gameObject.SetActive(false);
+        Time.timeScale = 0f;
+        _restartPanel.SetActive(true);
         // 죽었을 때 이벤트(재시작 화면??)
     }
 

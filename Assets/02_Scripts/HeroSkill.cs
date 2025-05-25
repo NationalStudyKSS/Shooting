@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class HeroSkill : MonoBehaviour
 {
+    [SerializeField] CharacterModel _model;
     [SerializeField] GameObject allyFlight;
     [SerializeField] float _coolTime = 5f;
+    [SerializeField] Image _skill1Image;
 
     float _coolTimer = 0f;
 
@@ -19,6 +22,7 @@ public class HeroSkill : MonoBehaviour
             _coolTimer -= Time.deltaTime;
             OnCoolTimeChanged?.Invoke(_coolTimer, _coolTime);
         }
+        Skill1CoolTime();
     }
 
     public void Skill1()
@@ -37,4 +41,9 @@ public class HeroSkill : MonoBehaviour
     }
 
     public bool CanUseSkill => _coolTimer <= 0f;
+
+    public void Skill1CoolTime()
+    {
+        _skill1Image.fillAmount = (_coolTime-_coolTimer) / _coolTime;
+    }
 }
